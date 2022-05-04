@@ -1,0 +1,28 @@
+[log]
+infofilePath = "/Users/dd/Documents/vkgateway/log/info.log"
+errorfilePath = "/Users/dd/Documents/vkgateway/log/error.log"
+
+[tcpgate]
+port = 7082 # 监听端口
+enabled = true # 是否开启 tcp 协议 网关
+dial_timeout = 5 # 后端连接超时 秒
+zero_copy = false # 零拷贝
+
+
+[kcpgate]
+port = 8082 # 监听端口
+enabled = true # 是否开启 kcp 协议 网关
+dial_timeout = 5 # 后端连接超时 秒
+zero_copy = false # 零拷贝
+
+[wsgate]
+port = 9082 # 监听端口
+enabled = true # 是否开启 ws 协议 网关
+dial_timeout = 5 # 后端连接超时 秒
+
+[common]
+dial_retry = 3 # 后端连接失败重试次数
+header_identify = "ipHost" # 后段地址获取策略 可选 origin jwt
+success_resp_message = "b2s=" # success_resp_message  ok
+connect_timeout = 10 # connect_timeout  握手等待超时时间 秒 seconds
+kcp_reciprocity = true # kcp_reciprocity  kcp 网关是否 后端连接是否对等
